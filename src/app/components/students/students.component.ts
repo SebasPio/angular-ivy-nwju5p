@@ -1,5 +1,6 @@
 import { AnalysisOutput } from "@angular/compiler-cli/src/ngtsc/transform";
 import { Component, Input, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
 import { DataService } from "./../../services/data.service";
 
 @Component({
@@ -13,8 +14,8 @@ export class StudentsComponent implements OnInit {
   @Input() courses: {
     courseName: string,
     courseQualy: number
-    }[] = [];
-  ;
+    }[] = []
+    
   constructor(public _services: DataService) {
     this.students = _services.readStudentList();
   }
@@ -31,4 +32,8 @@ export class StudentsComponent implements OnInit {
     this.courses = this._services.getCoursesByStudent(id);
     console.log(this.courses);
   }
+
+    assignNewQualy(){
+      console.log(this.courses);
+    } 
 }

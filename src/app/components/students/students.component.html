@@ -21,8 +21,9 @@
 </div>
 
 <!-- Courses by student -->
+
 <hr>
-<div class="col" ngDefaultControl  [(ngModel)]="courses"  >
+<div class="col" ngDefaultControl ngModel (ngModel)="courses"  >
   <h5>Materias de {{actualStudent}}:</h5>
   <hr>
   <table class="table table-striped">
@@ -36,7 +37,7 @@
       <tr *ngFor="let item of courses"  >
         <th  scope="row">{{item.courseName}}</th>
         <td>
-           <input class="form-control" id="courseQualy" [value]="item.courseQualy">
+           <input  class="form-control" id="courseQualy" [value]="item.courseQualy">
         </td>
       </tr>
     </tbody>
