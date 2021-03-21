@@ -43,11 +43,10 @@ export class StudentsComponent implements OnInit {
   }
 
   addStudent() {    
-    console.log(
-    document.getElementById("newStudentId").value,
-    document.getElementById("newStudentName")
-    )
-    //this._services.addStudent();
+    this._services.addStudent((
+      document.getElementById ("newStudentId") as HTMLInputElement).value,
+      (document.getElementById ("newStudentName")as HTMLInputElement).value);
+    this.ngOnInit();
   }
 
   deleteStudent(id: string) {
