@@ -1,7 +1,7 @@
-/* Sebastian de JEsus Pioquinto Cruz
+/* Sebastian de Jesus Pioquinto Cruz
 21 de Marzo del 2021
 Inicio: 10:18 
-Finalizacion: 
+Finalizacion: 16:30
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

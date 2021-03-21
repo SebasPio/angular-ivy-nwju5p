@@ -28,6 +28,10 @@ export class DataService {
         {
           courseName: "Historia",
           courseQualy: 4.2
+        },
+        {
+          courseName: "Artes",
+          courseQualy: 9.2
         }
       ]
     });
@@ -43,6 +47,29 @@ export class DataService {
         {
           courseName: "Historia",
           courseQualy: 8.5
+        },
+        {
+          courseName: "Artes",
+          courseQualy: 3.2
+        }
+      ]
+    })
+     this.studentsList.push({
+      studentId: "20213031",
+      studentName: "Paulina Franco",
+      isActive: true,
+      studentCourses: [
+        {
+          courseName: "Matematicas",
+          courseQualy: 10
+        },
+        {
+          courseName: "Historia",
+          courseQualy: 9.2
+        },
+        {
+          courseName: "Artes",
+          courseQualy: 8.9
         }
       ]
     });
