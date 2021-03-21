@@ -1,5 +1,5 @@
 import { AnalysisOutput } from "@angular/compiler-cli/src/ngtsc/transform";
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { DataService } from "./../../services/data.service";
 
 @Component({
@@ -8,16 +8,26 @@ import { DataService } from "./../../services/data.service";
   styleUrls: ["./students.component.css"]
 })
 export class StudentsComponent implements OnInit {
+  actualStudent: string= "";
   students: any[] = [];
-  courses: any[] = [];
+  @Input() courses: {
+    courseName: string,
+    courseQualy: number
+    }[] = [];
+  ;
   constructor(public _services: DataService) {
-    console.log(_services.readStudentList());
     this.students = _services.readStudentList();
   }
 
   ngOnInit() {}
 
+  updateStudentCoursesById(id: string, courses: Array<any>){
+    console.log(this.courses);
+    this._services.updateStudentCoursesById(id, courses);
+  }
+
   getCoursesByStudetn(id: string){
+    this.actualStudent = id;
     this.courses = this._services.getCoursesByStudent(id);
     console.log(this.courses);
   }

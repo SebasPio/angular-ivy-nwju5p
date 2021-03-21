@@ -1,5 +1,5 @@
 
-<div class="col">
+<div class="col" >
   <h2>Lista de estudiantes</h2>
   <hr>
   <table class="table table-striped">
@@ -13,11 +13,6 @@
       <tr (click)="getCoursesByStudetn(item.studentId)" *ngFor="let item of students">
         <th  scope="row">{{item.studentId}}</th>
         <td>{{item.studentName}}</td>
-        <td>
-          <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalLong">
-              Ver mas...
-              </button>
-        </td>
       </tr>
     </tbody>
   </table>
@@ -27,8 +22,8 @@
 
 <!-- Courses by student -->
 <hr>
-<div class="col">
-  <h5>Materias:</h5>
+<div class="col" ngDefaultControl >
+  <h5>Materias de {{actualStudent}}:</h5>
   <hr>
   <table class="table table-striped">
     <thead>
@@ -38,10 +33,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of courses">
+      <tr [(ngModel)]="item" *ngFor="let item of courses"  >
         <th  scope="row">{{item.courseName}}</th>
         <td>
-           <input class="form-control" id="courseQualy" placeholder={{item.courseQualy}}>
+           <input class="form-control" id="courseQualy" [value]="item.courseQualy">
         </td>
       </tr>
     </tbody>
@@ -49,24 +44,5 @@
 </div>
 <div class="col">
   
-  <button type="submit" class="btn btn-ligth">Guardar</button>
+  <button type="submit" class="btn btn-ligth" (click)="updateStudentCoursesById(actualStudent,courses)">Guardar</button>
 </div>
-
-
-
-<form style="display: none">
-  <div class="form-group" >
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>

@@ -50,8 +50,8 @@ getCoursesByStudent(id: string){
 return this.studentsList.find(x=>x.studentId == id).studentCourses;
 }
 
-updateStudentById(id: string, newData: student){
-//this.studentsList.find(x=>x.studentId == id) = newData;
+updateStudentCoursesById(id: string, newData: Array<course>){
+this.studentsList.find(x=>x.studentId == id).studentCourses = newData;
 }
 
 deleteStudentById(id: string){
