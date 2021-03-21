@@ -9,13 +9,13 @@ import { DataService } from "./../../services/data.service";
   styleUrls: ["./students.component.css"]
 })
 export class StudentsComponent implements OnInit {
-  actualStudent: string= "";
+  actualStudent: string = "";
   students: any[] = [];
   @Input() courses: {
-    courseName: string,
-    courseQualy: number
-    }[] = []
-    
+    courseName: string;
+    courseQualy: number;
+  }[] = [];
+
   constructor(public _services: DataService) {
     this.students = _services.readStudentList();
   }
@@ -24,36 +24,42 @@ export class StudentsComponent implements OnInit {
     this.students = this._services.readStudentList();
   }
 
-  updateStudentCoursesById(id: string, courses: Array<any>){
-    console.log(this.courses);
-    this._services.updateStudentCoursesById(id, courses);
+  updateStudentCoursesById(student:string, courses:any[]) {
   }
 
-  getCoursesByStudetn(id: string){
+  getCoursesByStudetn(id: string) {
+    document.getElementById("coursesDisplay").style.display = "";
     this.actualStudent = id;
     this.courses = this._services.getCoursesByStudent(id);
     console.log(this.courses);
   }
 
-    assignNewQualy(){
-      console.log(this.courses);
-    } 
+  hideCourses() {
+    document.getElementById("coursesDisplay").style.display = "none";
+  }
 
-    addStudent(id: string, name: string){
+  assignNewQualy() {
+    console.log(this.courses);
+  }
 
-    }
+  addStudent() {    
+    console.log(
+    document.getElementById("newStudentId").value,
+    document.getElementById("newStudentName")
+    )
+    //this._services.addStudent();
+  }
 
-    deleteStudent(id: string){
-      this._services.deleteStudentById(id);
-      this.ngOnInit();
-    }
+  deleteStudent(id: string) {
+    this._services.deleteStudentById(id);
+    this.ngOnInit();
+  }
 
-    showNewStudent(){      
-      document.getElementById("newStudentForm").style.display = '';
-    }
+  showNewStudent() {
+    document.getElementById("newStudentForm").style.display = "";
+  }
 
-
-    hideNewStudent(){      
-      document.getElementById("newStudentForm").style.display = 'none';
-    }
+  hideNewStudent() {
+    document.getElementById("newStudentForm").style.display = "none";
+  }
 }

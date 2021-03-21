@@ -31,21 +31,21 @@
   <button type="submit" class="btn btn-ligth" (click)="showNewStudent()">Agregar nuevo</button>
 </div>
 
-<div id="newStudentForm">
+<div style="display:none" id="newStudentForm">
 <form>
   <hr>
   <div class="form-group">
     <label for="newStudentId">Clave del alumno</label>
     <input class="form-control" id="newStudentId" placeholder="Clave asignada">
-    <small id="emailHelp" class="form-text text-muted">La clave no se puede repetir.</small>
+    <small id="idHelplHelp" class="form-text text-muted">La clave no se puede repetir.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nombre del alumno</label>
-    <input class="form-control" id="newStudentNAme" placeholder="Nombre completo">
+    <input class="form-control" id="newStudentName" placeholder="Nombre completo">
   </div>
   <div class="col">
-    <button type="button" class="btn btn-ligth"> Agregar </button>
-    <button (click)="hideNewStudent()" type="button" class="btn btn-danger">Cancelar </button>
+    <button (click)="addStudent()" type="button" class="btn btn-ligth"> Agregar </button>
+    <button type="button" class="btn btn-danger">Cancelar </button>
   </div>
   <hr>
 </form>
@@ -75,5 +75,6 @@
 
 <div class="col">
   <button type="submit" class="btn btn-ligth" (click)="updateStudentCoursesById(actualStudent,courses)">Guardar</button>
+    <button (click)="hideCourses()" type="button" class="btn btn-danger">Cancelar </button>
 </div>
 </div>

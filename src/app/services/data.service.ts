@@ -60,4 +60,13 @@ deleteStudentById(id: string){
   this.studentsList.find(x=>x.studentId == id).isActive = false;
 }
 
+addStudent(id: string, name:string){
+  this.studentsList.push({
+    studentId: id,
+    studentName: name,
+    isActive: true,
+    studentCourses: []
+  })
+}
+
 }
