@@ -81,5 +81,41 @@
   <div class="col">
     <button type="submit" class="btn btn-ligth" (click)="updateStudentCoursesById(actualStudent,courses)">Guardar</button>
     <button (click)="hideCourses()" type="button" class="btn btn-danger">Cancelar </button>
+    <button id="averageButton" (click)="getAverages()" type="button" class="btn btn-success">Obtener estadísticas </button>
   </div>
+
+  <hr>
+  <table id="averageTable" style="display:none" class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Indicador</th>
+        <th scope="col">Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total de notas aprobadas</td>
+        <td>{{actualAverage[1]}}</td>
+      </tr>
+      <tr>
+        <td>Total de notas no aprobadas</td>
+        <td>{{actualAverage[2]}}</td>
+      </tr>
+      <tr>
+        <td>Promedio total</td>
+        <td>{{actualAverage[5]}}</td>
+      </tr>
+      <tr>
+      <tr>
+        <td>Promedio de notas aprobadas</td>
+        <td>{{actualAverage[3]}}</td>
+      </tr>
+      <tr>
+      <tr>
+        <td>Promedio de notas no aprobadas</td>
+        <td>{{actualAverage[4]}}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
 </div>

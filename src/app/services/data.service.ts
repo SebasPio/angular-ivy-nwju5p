@@ -91,15 +91,6 @@ export class DataService {
       }
     });
     notApproveAverage = totalQualy / notApproveQuant;
-
-    console.log([
-      totalCourses,
-      approveQuant,
-      notApproveQuant,
-      approveAverage,
-      notApproveAverage,
-      totalAverage
-    ]);
     return [
       totalCourses,
       approveQuant,
