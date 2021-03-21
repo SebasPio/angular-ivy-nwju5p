@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
     studentId: string,
     studentName: string,
     studentCourses: Array<course>,
-    isActive: bool
+    //isActive: bool
   }
 
 @Injectable()
@@ -47,7 +47,7 @@ readStudentList(){
 }
 
 updateStudentById(id: string, newData: student){
-this.studentsList.find(x=>x.studentId == id) = newData;
+//this.studentsList.find(x=>x.studentId == id) = newData;
 }
 
 deleteStudentById(id: string){
