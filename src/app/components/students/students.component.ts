@@ -11,7 +11,7 @@ import { DataService } from "./../../services/data.service";
 export class StudentsComponent implements OnInit {
   actualStudent: string = "";
   students: any[] = [];
-  @Input() courses: {
+  courses: {
     courseName: string;
     courseQualy: number;
   }[] = [];
@@ -30,7 +30,7 @@ export class StudentsComponent implements OnInit {
     document.getElementById("coursesDisplay").style.display = "";
     this.actualStudent = id;
     this.courses = this._services.getCoursesByStudent(id);
-    console.log(this.courses);
+    this._services.getAverage(this.courses);
   }
 
   hideCourses() {
