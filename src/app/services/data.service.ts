@@ -46,6 +46,10 @@ readStudentList(){
   return this.studentsList;
 }
 
+getCoursesByStudent(id: string){
+return this.studentsList.find(x=>x.studentId == id).studentCourses;
+}
+
 updateStudentById(id: string, newData: student){
 //this.studentsList.find(x=>x.studentId == id) = newData;
 }

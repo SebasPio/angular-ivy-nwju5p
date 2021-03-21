@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr (click)="getStudentById(item.studentId)" *ngFor="let item of students">
+      <tr (click)="getCoursesByStudetn(item.studentId)" *ngFor="let item of students">
         <th  scope="row">{{item.studentId}}</th>
         <td>{{item.studentName}}</td>
         <td>
@@ -25,6 +25,7 @@
 <div class="col">
 </div>
 
+<!-- Courses by student -->
 <hr>
 <div class="col">
   <h5>Materias:</h5>
@@ -37,21 +38,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of students">
-        <th  scope="row">{{item.studentId}}</th>
+      <tr *ngFor="let item of courses">
+        <th  scope="row">{{item.courseName}}</th>
         <td>
-           <input class="form-control" id="courseQualy" placeholder="-">
+           <input class="form-control" id="courseQualy" placeholder={{item.courseQualy}}>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 <div class="col">
+  
+  <button type="submit" class="btn btn-ligth">Guardar</button>
 </div>
 
 
 
-<form style="display:">
+<form style="display: none">
   <div class="form-group" >
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
