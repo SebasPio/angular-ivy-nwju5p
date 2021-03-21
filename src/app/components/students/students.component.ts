@@ -24,8 +24,7 @@ export class StudentsComponent implements OnInit {
     this.students = this._services.readStudentList();
   }
 
-  updateStudentCoursesById(student:string, courses:any[]) {
-  }
+  updateStudentCoursesById(student: string, courses: any[]) {}
 
   getCoursesByStudetn(id: string) {
     document.getElementById("coursesDisplay").style.display = "";
@@ -42,10 +41,14 @@ export class StudentsComponent implements OnInit {
     console.log(this.courses);
   }
 
-  addStudent() {    
-    this._services.addStudent((
-      document.getElementById ("newStudentId") as HTMLInputElement).value,
-      (document.getElementById ("newStudentName")as HTMLInputElement).value);
+  addStudent() {
+    this._services.addStudent(
+      (document.getElementById("newStudentId") as HTMLInputElement).value,
+      (document.getElementById("newStudentName") as HTMLInputElement).value
+    );
+    document.getElementById("newStudentForm").style.display = "none";
+    (document.getElementById("newStudentId") as HTMLInputElement).value = "";
+    (document.getElementById("newStudentName") as HTMLInputElement).value = "";
     this.ngOnInit();
   }
 

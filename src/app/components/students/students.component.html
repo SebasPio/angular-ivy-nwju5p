@@ -32,23 +32,23 @@
 </div>
 
 <div style="display:none" id="newStudentForm">
-<form>
-  <hr>
-  <div class="form-group">
-    <label for="newStudentId">Clave del alumno</label>
-    <input class="form-control" id="newStudentId" placeholder="Clave asignada">
-    <small id="idHelplHelp" class="form-text text-muted">La clave no se puede repetir.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Nombre del alumno</label>
-    <input class="form-control" id="newStudentName" placeholder="Nombre completo">
-  </div>
-  <div class="col">
-    <button (click)="addStudent()" type="button" class="btn btn-ligth"> Agregar </button>
-    <button type="button" class="btn btn-danger">Cancelar </button>
-  </div>
-  <hr>
-</form>
+  <form>
+    <hr>
+    <div class="form-group">
+      <label for="newStudentId">Clave del alumno</label>
+      <input class="form-control" id="newStudentId" placeholder="Clave asignada">
+      <small id="idHelplHelp" class="form-text text-muted">La clave no se puede repetir.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Nombre del alumno</label>
+      <input class="form-control" id="newStudentName" placeholder="Nombre completo">
+    </div>
+    <div class="col">
+      <button (click)="addStudent()" type="button" class="btn btn-ligth"> Agregar </button>
+      <button (click)="hideNewStudent()" type="button" class="btn btn-danger">Cancelar </button>
+    </div>
+    <hr>
+  </form>
 </div>
 <!-- Courses by student -->
 
@@ -70,11 +70,19 @@
           <input  class="form-control" id="courseQualy" [value]="item.courseQualy">
         </td>
       </tr>
+      <tr>
+        <td scope="row">
+          <input  class="form-control" id="newCoursName" placeholder="Nueva Materia">
+        <td>
+          <input  class="form-control" id="newCourseQualy" placeholder="Nota">
+        </td>
+      </tr>
+
     </tbody>
   </table>
 
-<div class="col">
-  <button type="submit" class="btn btn-ligth" (click)="updateStudentCoursesById(actualStudent,courses)">Guardar</button>
+  <div class="col">
+    <button type="submit" class="btn btn-ligth" (click)="updateStudentCoursesById(actualStudent,courses)">Guardar</button>
     <button (click)="hideCourses()" type="button" class="btn btn-danger">Cancelar </button>
-</div>
+  </div>
 </div>
