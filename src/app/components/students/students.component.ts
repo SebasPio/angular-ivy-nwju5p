@@ -20,7 +20,9 @@ export class StudentsComponent implements OnInit {
     this.students = _services.readStudentList();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.students = this._services.readStudentList();
+  }
 
   updateStudentCoursesById(id: string, courses: Array<any>){
     console.log(this.courses);
@@ -36,4 +38,9 @@ export class StudentsComponent implements OnInit {
     assignNewQualy(){
       console.log(this.courses);
     } 
+
+    deleteStudent(id: string){
+      this._services.deleteStudentById(id);
+      this.ngOnInit();
+    }
 }

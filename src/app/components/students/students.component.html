@@ -10,9 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr (click)="getCoursesByStudetn(item.studentId)" *ngFor="let item of students">
-        <th  scope="row">{{item.studentId}}</th>
-        <td>{{item.studentName}}</td>
+      <tr *ngFor="let item of students">
+        <th (click)="getCoursesByStudetn(item.studentId)"  scope="row">{{item.studentId}}</th>
+        <td (click)="getCoursesByStudetn(item.studentId)" >{{item.studentName}}</td>
+        <th>
+            <button class="btn btn-sm btn-ligth" (click)="deleteStudent(item.studentId)">Borrar</button>
+        </th>
       </tr>
     </tbody>
   </table>

@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
     studentId: string,
     studentName: string,
     studentCourses: Array<course>,
-    //isActive: bool
+    isActive: boolean
   }
 
 @Injectable()
@@ -19,9 +19,10 @@ export class DataService {
     this.studentsList.push({
       studentId: "20213030",
       studentName: "Sebastian Pioquinto",
+        isActive: true,
       studentCourses: [{
         courseName: "Matematicas",
-        courseQualy: 6.5
+        courseQualy: 6.5,
       },
       {
         courseName: "Historia",
@@ -31,6 +32,7 @@ export class DataService {
         this.studentsList.push({
       studentId: "20213031",
       studentName: "Jesus Cruz",
+        isActive: true,
       studentCourses: [{
         courseName: "Matematicas",
         courseQualy: 7.5
@@ -43,7 +45,7 @@ export class DataService {
    }
 
 readStudentList(){
-  return this.studentsList;
+  return this.studentsList.filter(x=>x.isActive);
 }
 
 getCoursesByStudent(id: string){
@@ -55,7 +57,7 @@ this.studentsList.find(x=>x.studentId == id).studentCourses = newData;
 }
 
 deleteStudentById(id: string){
-  this.studentsList;
+  this.studentsList.find(x=>x.studentId == id).isActive = false;
 }
 
 }
