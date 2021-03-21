@@ -39,8 +39,21 @@ export class StudentsComponent implements OnInit {
       console.log(this.courses);
     } 
 
+    addStudent(id: string, name: string){
+
+    }
+
     deleteStudent(id: string){
       this._services.deleteStudentById(id);
       this.ngOnInit();
+    }
+
+    showNewStudent(){      
+      document.getElementById("newStudentForm").style.display = '';
+    }
+
+
+    hideNewStudent(){      
+      document.getElementById("newStudentForm").style.display = 'none';
     }
 }

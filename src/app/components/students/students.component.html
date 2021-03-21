@@ -1,5 +1,4 @@
-
-<div class="col" >
+<div class="col">
   <h2>Lista de estudiantes</h2>
   <hr>
   <table class="table table-striped">
@@ -11,10 +10,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of students">
-        <th (click)="getCoursesByStudetn(item.studentId)"  scope="row">{{item.studentId}}</th>
-        <td (click)="getCoursesByStudetn(item.studentId)" >{{item.studentName}}</td>
+        <th (click)="getCoursesByStudetn(item.studentId)" scope="row">{{item.studentId}}</th>
+        <td (click)="getCoursesByStudetn(item.studentId)">{{item.studentName}}</td>
         <th>
-            <button class="btn btn-sm btn-ligth" (click)="deleteStudent(item.studentId)">Borrar</button>
+          <button class="btn btn-sm btn-ligth" (click)="deleteStudent(item.studentId)">Borrar</button>
         </th>
       </tr>
     </tbody>
@@ -23,10 +22,38 @@
 <div class="col">
 </div>
 
+
+
+<!-- add student Courses by student -->
+
+
+<div>
+  <button type="submit" class="btn btn-ligth" (click)="showNewStudent()">Agregar nuevo</button>
+</div>
+
+<div id="newStudentForm">
+<form>
+  <hr>
+  <div class="form-group">
+    <label for="newStudentId">Clave del alumno</label>
+    <input class="form-control" id="newStudentId" placeholder="Clave asignada">
+    <small id="emailHelp" class="form-text text-muted">La clave no se puede repetir.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Nombre del alumno</label>
+    <input class="form-control" id="newStudentNAme" placeholder="Nombre completo">
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-ligth"> Agregar </button>
+    <button (click)="hideNewStudent()" type="button" class="btn btn-danger">Cancelar </button>
+  </div>
+  <hr>
+</form>
+</div>
 <!-- Courses by student -->
 
 <hr>
-<div class="col" ngDefaultControl ngModel (ngModel)="courses"  >
+<div id="coursesDisplay" style="display:none" class="col" ngDefaultControl ngModel (ngModel)="courses">
   <h5>Materias de {{actualStudent}}:</h5>
   <hr>
   <table class="table table-striped">
@@ -37,16 +64,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of courses"  >
-        <th  scope="row">{{item.courseName}}</th>
+      <tr *ngFor="let item of courses">
+        <th scope="row">{{item.courseName}}</th>
         <td>
-           <input  class="form-control" id="courseQualy" [value]="item.courseQualy">
+          <input  class="form-control" id="courseQualy" [value]="item.courseQualy">
         </td>
       </tr>
     </tbody>
   </table>
-</div>
+
 <div class="col">
-  
   <button type="submit" class="btn btn-ligth" (click)="updateStudentCoursesById(actualStudent,courses)">Guardar</button>
+</div>
 </div>
